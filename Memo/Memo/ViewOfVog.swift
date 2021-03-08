@@ -14,7 +14,7 @@ struct Viewz: View {
 //    @State private var Title = ["hoge", "huga", "fizz", "buzz", "fizzbuzz"]
 //
     @Environment(\.managedObjectContext) var moc
-    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Memos.date, ascending: true)],animation: .default) var Title: FetchedResults<Memos>
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Memos.date, ascending: true)],animation: .default) var Memo_array: FetchedResults<Memos>
 //    @State private var Title = Set<Memos>()
 
 
@@ -23,8 +23,8 @@ struct Viewz: View {
             NavigationView {
                 // Topに表示
                 VStack {
-                    Text("num of AppEntity  \(Title.count)")
-                    List(Title, id:\.self) { title in
+                    Text("num of AppEntity  \(Memo_array.count)")
+                    List(Memo_array, id:\.self) { title in
                         Text("UUID: \(title.date!)  String: \(title.text!)  Int64: \(title.title!)")
 
                 }

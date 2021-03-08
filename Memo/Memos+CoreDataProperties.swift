@@ -19,6 +19,8 @@ extension Memos {
     @NSManaged public var date: Date?
     @NSManaged public var text: String?
     @NSManaged public var title: String?
+    @NSManaged public var id: UUID?
+    
 
 }
 

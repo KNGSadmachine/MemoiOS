@@ -15,12 +15,10 @@ struct ContentView: View {
 
         var body: some View {
             NavigationView {
-//                List(Memo_array,id:\.self) {
-//                    memo in Text(" \(memo.title!)")
                 List {
                     
-                    ForEach(Memo_array, id: \.self) { i in NavigationLink(destination: SecView()) {
-                        Text(i.title! ?? "Noname")
+                    ForEach(Memo_array, id: \.self) { i in NavigationLink(destination: EditView(title : i.title!, text : i.text!)) {
+                        Text("\(i.title! )")
                     }
                     
                     }
@@ -46,10 +44,6 @@ struct ContentView: View {
             // handle the Core Data error
         }
     }
-//    func Remove(offsets: IndexSet) {
-//        Memo_array.remove(atOffsets: offsets)
-//        }
-              
 }
 // View
 struct ContentView_Previews: PreviewProvider {

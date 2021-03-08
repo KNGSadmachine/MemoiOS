@@ -17,6 +17,7 @@
 		4B2DF93525F0AA480011F413 /* Memos+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2DF93325F0AA480011F413 /* Memos+CoreDataProperties.swift */; };
 		4B2DF93825F0B81E0011F413 /* ViewOfVog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2DF93725F0B81E0011F413 /* ViewOfVog.swift */; };
 		4B9ADACD25F4E6A000B558F9 /* SecView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9ADACC25F4E6A000B558F9 /* SecView.swift */; };
+		4B9ADAD025F5D87800B558F9 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9ADACF25F5D87800B558F9 /* EditView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		4B2DF93325F0AA480011F413 /* Memos+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Memos+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4B2DF93725F0B81E0011F413 /* ViewOfVog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewOfVog.swift; sourceTree = "<group>"; };
 		4B9ADACC25F4E6A000B558F9 /* SecView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecView.swift; sourceTree = "<group>"; };
+		4B9ADACF25F5D87800B558F9 /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				4B2DF91125F07F570011F413 /* MemoApp.swift */,
 				4B2DF91325F07F570011F413 /* ContentView.swift */,
 				4B9ADACC25F4E6A000B558F9 /* SecView.swift */,
+				4B9ADACF25F5D87800B558F9 /* EditView.swift */,
 				4B2DF93725F0B81E0011F413 /* ViewOfVog.swift */,
 				4B2DF91525F07F5A0011F413 /* Assets.xcassets */,
 				4B2DF91A25F07F5A0011F413 /* Persistence.swift */,
@@ -161,6 +164,7 @@
 				4B2DF91425F07F570011F413 /* ContentView.swift in Sources */,
 				4B2DF91225F07F570011F413 /* MemoApp.swift in Sources */,
 				4B2DF91E25F07F5A0011F413 /* Memo.xcdatamodeld in Sources */,
+				4B9ADAD025F5D87800B558F9 /* EditView.swift in Sources */,
 				4B2DF93425F0AA480011F413 /* Memos+CoreDataClass.swift in Sources */,
 				4B9ADACD25F4E6A000B558F9 /* SecView.swift in Sources */,
 				4B2DF93525F0AA480011F413 /* Memos+CoreDataProperties.swift in Sources */,

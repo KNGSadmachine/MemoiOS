@@ -1,25 +1,30 @@
 //
-//  SecView.swift
+//  EditVIew.swift
 //  Memo
 //
-//  Created by K K on 2021/03/07.
+//  Created by K K on 2021/03/08.
 //
 
 import SwiftUI
 
-struct SecView: View {
+struct EditView: View {
+//    var ids : UUID
+//    var titles : String
+//    var texts : String
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State private var SaveAlert = false
     @State private var EmptyTitle = false
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Memos.date, ascending: true)],animation: .default) var Memo_array: FetchedResults<Memos>
-    @State var title : String = ""
-    @State var text : String = ""
+    @State var title : String
+    @State var text : String
+    
 
+    
     var body: some View {
         ScrollView(showsIndicators: false) {
         VStack(spacing: 30){
-        TextField("Title", text: $title)
+            TextField("", text: $title)
             .frame(width : 335)
             .overlay(
                    RoundedRectangle(cornerSize: CGSize(width: 8.0, height: 8.0))
@@ -29,7 +34,7 @@ struct SecView: View {
             .offset(x: 0, y: 0)
             .padding(.top)
             
-        TextEditor(text: $text)
+            TextEditor(text: $text)
             .frame(width : 335, height: 300)
             .overlay(
                    RoundedRectangle(cornerSize: CGSize(width: 8.0, height: 8.0))
@@ -43,7 +48,7 @@ struct SecView: View {
                 self.SaveAlert = true
             }
             .alert(isPresented: $SaveAlert) {
-                Alert(title: Text("保存しますか？"),
+                Alert(title: Text("上書き保存しますか？"),
                       primaryButton : .cancel(Text("保存する"),action : createNewEntity),
                       secondaryButton : .default(Text("戻る")){
                         
@@ -56,9 +61,7 @@ struct SecView: View {
         }
         
     }
-    func backHome() {
-        self.presentationMode.wrappedValue.dismiss()
-    }
+
     func createNewEntity() {
         let memo = Memos(context: moc)
         memo.id = UUID()
@@ -73,10 +76,9 @@ struct SecView: View {
 //            Alert(title: Text("miss"))
         }
     }
-
-struct SecView_Previews: PreviewProvider {
-    static var previews: some View {
-        SecView()
-    }
 }
+struct EditVIew_Previews: PreviewProvider {
+    static var previews: some View {
+        EditView(title : "", text : "")
+    }
 }

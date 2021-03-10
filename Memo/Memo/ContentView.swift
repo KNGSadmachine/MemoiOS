@@ -12,13 +12,14 @@ struct ContentView: View {
     // CoreDataの中身をMemo_arrayに入れる
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Memos.date, ascending: true)],animation: .default) var Memo_array: FetchedResults<Memos>
+    
 
         var body: some View {
             NavigationView {
                 List {
                     
-                    ForEach(Memo_array, id: \.self) { i in NavigationLink(destination: EditView(title : i.title!, text : i.text!)) {
-                        Text("\(i.title! )")
+                    ForEach(Memo_array, id: \.self) { i in NavigationLink(destination: EditView(title : i.title!, text : i.text!, id : i.id!)) {
+                        Text(i.title!)
                     }
                     
                     }

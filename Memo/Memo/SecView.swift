@@ -51,6 +51,12 @@ struct SecView: View {
                 )
             }
             )
+            if text.isEmpty {
+                Text("text")
+                        .font(.custom("Helvetica", size: 20))
+                        .offset(x: -150, y: -325)
+                        .foregroundColor(Color(UIColor.placeholderText))
+                }
         }
         .frame(width: 500, height: .infinity)
         }

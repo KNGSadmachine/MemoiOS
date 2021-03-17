@@ -13,6 +13,10 @@ struct ContentView: View {
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Memos.date, ascending: true)],animation: .default) var Memo_array: FetchedResults<Memos>
     
+    init() {
+           UITableView.appearance().tableFooterView = UIView()
+           UITableView.appearance().separatorStyle = .none
+       }
 
         var body: some View {
             NavigationView {

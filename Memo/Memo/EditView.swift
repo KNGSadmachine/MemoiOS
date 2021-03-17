@@ -11,6 +11,7 @@ struct EditView: View {
 //    var ids : UUID
 //    var titles : String
 //    var texts : String
+    @State private var TitleAlert = false
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State private var SaveAlert = false
     @State private var EmptyTitle = false
@@ -48,7 +49,12 @@ struct EditView: View {
             .navigationTitle(title)
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(trailing: Button("Save") {
-                self.SaveAlert = true
+                if title.isEmpty{
+                    self.TitleAlert = true
+                } else {
+                    self.TitleAlert = false
+                    self.SaveAlert = true
+                }
             }
             .alert(isPresented: $SaveAlert) {
                 Alert(title: Text("上書き保存しますか？"),

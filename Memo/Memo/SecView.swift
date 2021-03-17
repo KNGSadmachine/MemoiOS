@@ -10,6 +10,7 @@ import SwiftUI
 struct SecView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State private var SaveAlert = false
+    @State private var TitleAlert = false
     @State private var EmptyTitle = false
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Memos.date, ascending: true)],animation: .default) var Memo_array: FetchedResults<Memos>
@@ -40,24 +41,32 @@ struct SecView: View {
             .navigationTitle(title)
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(trailing: Button("Save") {
-                self.SaveAlert = true
+                if title.isEmpty{
+                    self.TitleAlert = true
+                } else {
+                    self.TitleAlert = false
+                    self.SaveAlert = true
+                }
             }
             .alert(isPresented: $SaveAlert) {
                 Alert(title: Text("保存しますか？"),
                       primaryButton : .cancel(Text("保存する"),action : createNewEntity),
                       secondaryButton : .default(Text("戻る")){
-                        
+
                       }
                 )
             }
             )
-//　TextFieldが何も書かれていない時のプレイスホルダー
+// TextFieldが何も書かれていない時のプレイスホルダー
             if text.isEmpty {
                 Text("text")
                         .font(.custom("Helvetica", size: 20))
                         .offset(x: -150, y: -325)
                         .foregroundColor(Color(UIColor.placeholderText))
                 }
+            if title.isEmpty {
+                
+            }
         }
         .frame(width: 500, height: .infinity)
         }

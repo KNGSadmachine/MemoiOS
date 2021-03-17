@@ -17,11 +17,11 @@ struct ContentView: View {
         var body: some View {
             NavigationView {
                 List {
-                    
+
                     ForEach(Memo_array, id: \.self) { i in NavigationLink(destination: EditView(title : i.title!, text : i.text!, id : i.id!)) {
                         Text(i.title!)
                     }
-                    
+
                     }
                     .onDelete(perform: Remove)
                 }

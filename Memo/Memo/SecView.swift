@@ -51,6 +51,7 @@ struct SecView: View {
                 )
             }
             )
+//　TextFieldが何も書かれていない時のプレイスホルダー
             if text.isEmpty {
                 Text("text")
                         .font(.custom("Helvetica", size: 20))

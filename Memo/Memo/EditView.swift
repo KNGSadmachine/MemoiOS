@@ -21,16 +21,13 @@ struct EditView: View {
     @State var title : String
     @State var text : String
     @State var id : UUID
-
-    
-  
+    @State private var num : Int = 0
     
 
-    
     var body: some View {
         ScrollView(showsIndicators: false) {
         VStack(spacing: 30){
-            TextField("title", text: $title)
+            TextField("Title", text: $title)
             .frame(width : 335)
             .overlay(
                    RoundedRectangle(cornerSize: CGSize(width: 8.0, height: 8.0))
@@ -62,10 +59,11 @@ struct EditView: View {
                 )
             }
             )
+//　TextFieldが何も書かれていない時のプレイスホルダー
             if text.isEmpty {
-                Text(id.uuidString)
+                Text("text")
                         .font(.custom("Helvetica", size: 20))
-                        .offset(x: 0, y: -350)
+                        .offset(x: -150, y: -325)
                         .foregroundColor(Color(UIColor.placeholderText))
                 }
         }
@@ -73,15 +71,30 @@ struct EditView: View {
         }
         
     }
-
+    
+    
+    mutating func Number() {
+        for j in 0 ... Memo_array.count - 1{
+            if Memo_array[j].id == id{
+                num = j
+            }
+        }
+        
+    }
+    
     func createOverEntity() {
+        for j in 0 ... Memo_array.count - 1{
+            if Memo_array[j].id == id{
+                num = j
+            }
+        }
         let memo = Memos(context: moc)
         memo.id = UUID()
         memo.text = text
         memo.date = Date()
         memo.title = title
         do {
-            let Memo = Memo_array[0]
+            let Memo = Memo_array[num]
             moc.delete(Memo)
             try moc.save()
             self.presentationMode.wrappedValue.dismiss()

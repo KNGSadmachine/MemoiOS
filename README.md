@@ -29,6 +29,7 @@ iOS向けのメモアプリを作りました．
 
 ## TOP画面
 ダークモードを想定して作りました．
+
 <img src="https://user-images.githubusercontent.com/65950135/111453560-0cb49d80-8757-11eb-9312-d9192c684c0e.PNG" width="250">
 
 ### 削除UI

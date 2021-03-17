@@ -33,7 +33,7 @@ struct EditView: View {
             .overlay(
                    RoundedRectangle(cornerSize: CGSize(width: 8.0, height: 8.0))
                    .stroke(Color("Waku"), lineWidth: 4.0)
-                    .padding(-5)
+                    .padding(-5.0)
            )
             .offset(x: 0, y: 0)
             .padding(.top)
@@ -45,31 +45,38 @@ struct EditView: View {
                    .stroke(Color("Waku"), lineWidth: 4.0)
                     
            )
-            .offset(x: 0, y: 0)
+            .offset(x: 0, y: -15)
             .navigationTitle(title)
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(trailing: Button("Save") {
+                self.SaveAlert = true
                 if title.isEmpty{
                     self.TitleAlert = true
                 } else {
                     self.TitleAlert = false
-                    self.SaveAlert = true
                 }
             }
             .alert(isPresented: $SaveAlert) {
-                Alert(title: Text("上書き保存しますか？"),
-                      primaryButton : .cancel(Text("保存する"),action : createOverEntity),
-                      secondaryButton : .default(Text("戻る")){
-                        
-                      }
-                )
+                switch(TitleAlert) {
+                                    case false:
+                                        return Alert(title: Text("上書き保存しますか？"),
+                                                     primaryButton : .cancel(Text("保存する"),action : createOverEntity),
+                                                     secondaryButton : .default(Text("戻る")){
+
+                                                     }
+                                               )
+                                    case true:
+                                        return Alert(title: Text("保存できません．"),message: Text("タイトルを入力してください．"))
+                                }
             }
             )
+            Text("文字数：\(text.count)")
+                .offset(x: 130, y: -37.5)
 //　TextFieldが何も書かれていない時のプレイスホルダー
             if text.isEmpty {
                 Text("text")
                         .font(.custom("Helvetica", size: 20))
-                        .offset(x: -150, y: -325)
+                        .offset(x: -150, y: -390)
                         .foregroundColor(Color(UIColor.placeholderText))
                 }
         }
@@ -78,20 +85,11 @@ struct EditView: View {
         
     }
     
-    
-    mutating func Number() {
-        for j in 0 ... Memo_array.count - 1{
-            if Memo_array[j].id == id{
-                num = j
-            }
-        }
-        
-    }
-    
     func createOverEntity() {
         for j in 0 ... Memo_array.count - 1{
             if Memo_array[j].id == id{
                 num = j
+                break
             }
         }
         let memo = Memos(context: moc)

@@ -13,10 +13,23 @@ struct ContentView: View {
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Memos.date, ascending: true)],animation: .default) var Memo_array: FetchedResults<Memos>
     
-    init() {
-           UITableView.appearance().tableFooterView = UIView()
-           UITableView.appearance().separatorStyle = .none
-       }
+//    init() {
+//           UITableView.appearance().tableFooterView = UIView()
+//           UITableView.appearance().separatorStyle = .none
+//       }
+//    init() {
+//        setupNavigationBar()
+//    }
+//
+//    func setupNavigationBar() {
+//        let appearance = UINavigationBarAppearance()
+//        appearance.configureWithOpaqueBackground()
+//        appearance.backgroundColor = .yellow
+//        appearance.titleTextAttributes = [.foregroundColor: UIColor.blue]
+//        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.blue]
+//        UINavigationBar.appearance().standardAppearance = appearance
+//        UINavigationBar.appearance().scrollEdgeAppearance = appearance
+//    }
 
         var body: some View {
             NavigationView {
@@ -24,6 +37,7 @@ struct ContentView: View {
 
                     ForEach(Memo_array, id: \.self) { i in NavigationLink(destination: EditView(title : i.title!, text : i.text!, id : i.id!)) {
                         Text(i.title!)
+                            .listRowBackground(Color.green)
                     }
 
                     }
@@ -31,7 +45,7 @@ struct ContentView: View {
                 }
 //            .onDelete(perform: Remove)
                 .navigationTitle("Memo")
-                .navigationBarTitleDisplayMode(.inline)
+//                .navigationBarTitleDisplayMode(.inline)
                 .navigationBarItems(leading: EditButton(),
                 trailing: NavigationLink(destination: SecView(), label: { Image(systemName: "plus") }))
             

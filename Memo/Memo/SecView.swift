@@ -21,7 +21,7 @@ struct SecView: View {
         ScrollView(showsIndicators: false) {
         VStack(spacing: 30){
         TextField("Title", text: $title)
-            .frame(width : 335)
+            .frame(width : 345)
             .overlay(
                    RoundedRectangle(cornerSize: CGSize(width: 8.0, height: 8.0))
                    .stroke(Color("Waku"), lineWidth: 4.0)
@@ -31,37 +31,46 @@ struct SecView: View {
             .padding(.top)
             
         TextEditor(text: $text)
-            .frame(width : 335, height: 300)
+            .frame(width : 345, height: 300)
             .overlay(
                    RoundedRectangle(cornerSize: CGSize(width: 8.0, height: 8.0))
                    .stroke(Color("Waku"), lineWidth: 4.0)
                    .padding(-5.0)
            )
-            .offset(x: 0, y: 0)
+            .offset(x: 0, y: -10)
             .navigationTitle(title)
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(trailing: Button("Save") {
+                self.SaveAlert = true
                 if title.isEmpty{
                     self.TitleAlert = true
                 } else {
                     self.TitleAlert = false
-                    self.SaveAlert = true
                 }
             }
             .alert(isPresented: $SaveAlert) {
-                Alert(title: Text("保存しますか？"),
-                      primaryButton : .cancel(Text("保存する"),action : createNewEntity),
-                      secondaryButton : .default(Text("戻る")){
+                switch(TitleAlert) {
+                                    case false:
+                                        return Alert(title: Text("保存しますか？"),
+                                                     primaryButton : .cancel(Text("保存する"),action : createNewEntity),
+                                                     secondaryButton : .default(Text("戻る")){
 
-                      }
-                )
+                                                     }
+                                               )
+                                    case true:
+                                        return Alert(title: Text("保存できません．"),message: Text("タイトルを入力してください．"))
+                                }
+                
+                
             }
             )
+            Text("文字数：\(text.count)")
+                .offset(x: 130, y: -32)
 // TextFieldが何も書かれていない時のプレイスホルダー
             if text.isEmpty {
                 Text("text")
                         .font(.custom("Helvetica", size: 20))
-                        .offset(x: -150, y: -325)
+                        .offset(x: -150, y: -390)
                         .foregroundColor(Color(UIColor.placeholderText))
                 }
             if title.isEmpty {
@@ -84,9 +93,8 @@ struct SecView: View {
         do {
             try moc.save()
             self.presentationMode.wrappedValue.dismiss()
-//            try NavigationLink(ContentView, destination: ContentView())
         } catch {
-//            Alert(title: Text("miss"))
+            
         }
     }
 

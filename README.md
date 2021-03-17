@@ -1,10 +1,14 @@
 ## インターンシップ課題
 # 文字数がわかる”すごい”メモアプリ 
-iOS向けのメモアプリを自作しました
+iOS向けのメモアプリを作りました．
 
-メモはiPhone内のROMに保存できます．
+メモはiPhone内のROMに保存できてます．
 
 メモの文字数が表示されるので文字制限があるものを書くときにおすすめ．
+
+## 今後このアプリに対してやりたいこと
+- UIをもっとCOOLにしたい．
+- メモに画像を挿入できる機能を実装したい．
 
 
 ## 使ったもの
@@ -24,29 +28,28 @@ iOS向けのメモアプリを自作しました
 
 
 ## TOP画面
-![IMG_0816](https://user-images.githubusercontent.com/65950135/111453560-0cb49d80-8757-11eb-9312-d9192c684c0e.PNG)
+ダークモードを想定して作りました．
+<img src="https://user-images.githubusercontent.com/65950135/111453560-0cb49d80-8757-11eb-9312-d9192c684c0e.PNG" width="250">
 
 ### 削除UI
-![IMG_0817](https://user-images.githubusercontent.com/65950135/111453556-0c1c0700-8757-11eb-8411-7476db0111fa.PNG)
 
-![IMG_0818](https://user-images.githubusercontent.com/65950135/111453554-0c1c0700-8757-11eb-8b0a-bb69922dcdf1.PNG)
+<img src="https://user-images.githubusercontent.com/65950135/111453556-0c1c0700-8757-11eb-8411-7476db0111fa.PNG" width="250">
+<img src="https://user-images.githubusercontent.com/65950135/111453554-0c1c0700-8757-11eb-8b0a-bb69922dcdf1.PNG" width="250">
 
 スライドでも削除ができます．
 
-![IMG_0819](https://user-images.githubusercontent.com/65950135/111453551-0b837080-8757-11eb-8506-6939e8668a0b.PNG)
-
+<img src="https://user-images.githubusercontent.com/65950135/111453551-0b837080-8757-11eb-8506-6939e8668a0b.PNG" width="250">
 
 
 ## 新規メモ追加画面・メモ編集画面
 
 ### 新規メモ追加画面
-![IMG_0820](https://user-images.githubusercontent.com/65950135/111453548-0aeada00-8757-11eb-9009-6b57b284237b.PNG)
+
+<img src="https://user-images.githubusercontent.com/65950135/111453548-0aeada00-8757-11eb-9009-6b57b284237b.PNG" width="250">
 
 ### メモ編集画面
-![IMG_0815](https://user-images.githubusercontent.com/65950135/111453540-09211680-8757-11eb-9937-c0e4000a4573.PNG)
 
-## 今後やりたいこと
-- UIをもっとCOOLにしたい．
-- メモに画像を挿入できる機能を実装したい．
+<img src="https://user-images.githubusercontent.com/65950135/111453540-09211680-8757-11eb-9937-c0e4000a4573.PNG" width="250">
+
 
 
